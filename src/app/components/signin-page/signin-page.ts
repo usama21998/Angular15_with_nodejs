@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertsService } from 'src/app/services/alerts.service';
 import { GeneralService } from 'src/app/services/general.service';
 import { HttpRequestsService } from 'src/app/services/http-requests.service';
+import Swal from 'sweetalert2'
 
 @Component({
     selector: 'signin-page',
@@ -11,7 +13,7 @@ import { HttpRequestsService } from 'src/app/services/http-requests.service';
 export class SignInComponent implements OnInit {
     signinFrom: FormGroup;
 
-    constructor(private _formBuilder: FormBuilder, private router: Router, private generalService: GeneralService, private httpService: HttpRequestsService) {
+    constructor(private _formBuilder: FormBuilder, private router: Router, private generalService: GeneralService, private httpService: HttpRequestsService, private alert: AlertsService) {
         this.signinFrom = this._formBuilder.group({
             email: ['', Validators.required],
             password: ['', Validators.required],
@@ -28,7 +30,9 @@ export class SignInComponent implements OnInit {
                 this.router.navigate(['/dashboard']);
                 sessionStorage.setItem('username', formValue.email)
             }, error => {
-                console.log(error.message)
+                debugger
+                console.log(error)
+                this.alert.error(error.error);
             })
 
         }

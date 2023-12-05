@@ -10,10 +10,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { SignInModule } from './signin-page/signin.module';
 import { DashboardComponent } from './dashboard/dashboard';
 import { SharedModule } from '../shared/shared.module';
+import { ProductComponent } from './products/product';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
     declarations: [
         DashboardComponent,
+        ProductComponent
     ],
     imports: [
         BrowserModule,
@@ -26,7 +29,8 @@ import { SharedModule } from '../shared/shared.module';
         MatCardModule,
         MatButtonModule,
         SignInModule,
-        SharedModule
+        SharedModule,
+        MatTableModule
     ],
     providers: [],
 })

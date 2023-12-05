@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AppConstants } from 'src/app/app.constant';
 import { GeneralService } from 'src/app/services/general.service';
 
@@ -10,7 +11,7 @@ import { GeneralService } from 'src/app/services/general.service';
 export class DashboardComponent implements OnInit, AfterViewInit {
     userName: any
 
-    constructor() {
+    constructor(private router: Router) {
         this.userName = sessionStorage.getItem('username');
     }
 
@@ -18,6 +19,15 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit(): void {
+
+    }
+    
+    onClick(route: string) {
+        switch (route) {
+            case "product":
+                this.router.navigate([`/${route}`]);
+                break
+        }
 
     }
 }
