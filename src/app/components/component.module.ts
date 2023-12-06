@@ -11,12 +11,14 @@ import { SignInModule } from './signin-page/signin.module';
 import { DashboardComponent } from './dashboard/dashboard';
 import { SharedModule } from '../shared/shared.module';
 import { ProductComponent } from './products/product';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
+import { UserComponent } from './user/user';
 
 @NgModule({
     declarations: [
         DashboardComponent,
-        ProductComponent
+        ProductComponent,
+        UserComponent
     ],
     imports: [
         BrowserModule,

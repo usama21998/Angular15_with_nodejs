@@ -41,6 +41,10 @@ export class HttpRequestsService {
     return this.http.post(true, url, user);
   }
 
+  getUsers() {
+    let url = `users`
+    return this.http.get(true, url);
+  }
 
 
 }

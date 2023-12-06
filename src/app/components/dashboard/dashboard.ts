@@ -21,13 +21,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     ngAfterViewInit(): void {
 
     }
-    
-    onClick(route: string) {
-        switch (route) {
-            case "product":
-                this.router.navigate([`/${route}`]);
-                break
-        }
 
+    onClick(route: string) {
+        this.router.navigate([`/${route}`]);
     }
 }
